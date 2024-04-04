@@ -1,8 +1,6 @@
 import { generateToken } from "../config/jwtToken.js";
 import { users } from "../models/Docs/user.model.js";
-import asyncHandler from 'express-async-handler';
-
-const createUser = asyncHandler(async (req,res) =>{
+const createUser = async (req,res) =>{
     const userEmail = req.body.email;
     const findUser = await users.findOne({email:userEmail});
     if(!findUser){
@@ -11,9 +9,9 @@ const createUser = asyncHandler(async (req,res) =>{
     }else{
         throw new Error('User already exists')
     };
-});
+};
 
-const loginUser = asyncHandler(async (req,res)=>{
+const loginUser = async (req,res)=>{
     const {email,password} = req.body;
     // check if user already exists or not
     const findUser = await users.findOne({email});
@@ -27,8 +25,21 @@ const loginUser = asyncHandler(async (req,res)=>{
             token:generateToken(findUser?._id)
         });
     }else{
-        throw new Error("User already exists")
+        throw new Error("Something was wrong")
     }
-});
+};
 
-export { createUser ,loginUser};
+const getUser = async (req,res)=>{
+    try {
+        const getUser = await users.find();
+        res.json(getUser);
+    } catch (error) {
+        throw new Error(error);
+    } 
+};
+
+const getAUser = async (req, res) => {};
+
+// const getUser = '';
+
+export { createUser ,loginUser ,getUser , getAUser};

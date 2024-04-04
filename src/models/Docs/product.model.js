@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 
-const prductSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     title:{
         type:String,
         required:[true,"Title is required"],
@@ -54,3 +54,5 @@ const prductSchema = new mongoose.Schema({
         trim:true,
     }
 },{timestamps:true});
+
+export const products = mongoose.model("products",productSchema)
