@@ -1,5 +1,6 @@
 import { generateToken } from "../config/jwtToken.js";
 import { users } from "../models/Docs/user.model.js";
+// create user
 const createUser = async (req,res) =>{
     const userEmail = req.body.email;
     const findUser = await users.findOne({email:userEmail});
@@ -10,7 +11,7 @@ const createUser = async (req,res) =>{
         throw new Error('User already exists')
     };
 };
-
+// login user
 const loginUser = async (req,res)=>{
     const {email,password} = req.body;
     // check if user already exists or not
@@ -25,10 +26,10 @@ const loginUser = async (req,res)=>{
             token:generateToken(findUser?._id)
         });
     }else{
-        throw new Error("Something was wrong")
+        throw new Error("Something was wrong in login")
     }
 };
-
+// get all users
 const getUser = async (req,res)=>{
     try {
         const getUser = await users.find();
@@ -37,9 +38,81 @@ const getUser = async (req,res)=>{
         throw new Error(error);
     } 
 };
+// get a single user
+const getAUser = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const getaUser = await users.findById(id);
+        res.json({
+            getaUser
+        });
+    } catch (error) {
+        throw new Error(error);
+    }
+};
+// delet user
+const deletUser = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const deletUser = await users.findByIdAndDelete(id);
+        res.json({
+            deletUser
+        });
+    } catch (error) {
+        throw new Error(error);
+    }
+};
+// update user
+const updateUser = async (req, res) => {
+    const { _id } = req.user;
+    try {
+    const updatedUser = await users.findByIdAndUpdate(_id,{
+        firstName:req?.body?.firstName,
+        lastName:req?.body?.lastName,
+        email:req?.body?.email,
+        number:req?.body?.number
+    },{
+        new:true
+    });
+    res.json(updatedUser);
+    } catch (error) {
+        throw new Error(error);
+    }
+};
 
-const getAUser = async (req, res) => {};
+const blockUser = async (req,res)=>{
+    const { id } = req.params;
+    try {
+        const block = users.findByIdAndUpdate(id,
+        {
+            isBlock:true
+        },
+        {
+            new:true
+        });
+        res.json({
+            message:"User is blocked"
+        });
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+const unblockUser = async(req,res)=>{
+    const { id } = req.params;
+    try {
+        const unblock = users.findByIdAndUpdate(id,
+        {
+            isBlock:false
+        },
+        {
+            new:true
+        });
+        res.json({
+            message:"User is unblocked"
+        })
+    } catch (error) {
+        throw new Error(error)
+    }
+}
 
-// const getUser = '';
-
-export { createUser ,loginUser ,getUser , getAUser};
+export { createUser ,loginUser ,getUser , getAUser, deletUser,updateUser,blockUser,unblockUser};

@@ -32,10 +32,30 @@ const userSchema = new mongoose.Schema({
         minlength:[4,"Your password must be at least 4 characters long"],
         trim:true
     },
+    isBlocked:{
+        type:Boolean,
+        default:false
+    },
     role:{
         type:String,
         default:'user'
-    }
+    },
+    cart:{
+        type:Array,
+        default:[]
+    },
+    address:[
+        {
+            type:mongoose.Schema.Types.ObjectId ,
+            ref:"Adderss"
+        }
+    ],
+    wishlist:[
+        {
+            type:mongoose.Schema.Types.ObjectId, 
+            ref:"products"
+        }
+    ],
 },{timestamps:true})
 
 userSchema.pre('save', async function(next){
