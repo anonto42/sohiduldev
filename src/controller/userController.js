@@ -79,37 +79,34 @@ const updateUser = async (req, res) => {
         throw new Error(error);
     }
 };
-
+// block user
 const blockUser = async (req,res)=>{
     const { id } = req.params;
     try {
-        const block = users.findByIdAndUpdate(id,
+        const block = await users.findByIdAndUpdate(id,
         {
-            isBlock:true
+            isBlocked:true
         },
         {
             new:true
         });
-        res.json({
-            message:"User is blocked"
-        });
+        res.json(block);
     } catch (error) {
         throw new Error(error)
     }
 }
+// unblock user
 const unblockUser = async(req,res)=>{
     const { id } = req.params;
     try {
-        const unblock = users.findByIdAndUpdate(id,
+        const unblock = await users.findByIdAndUpdate(id,
         {
-            isBlock:false
+            isBlocked:false
         },
         {
             new:true
         });
-        res.json({
-            message:"User is unblocked"
-        })
+        res.json(unblock)
     } catch (error) {
         throw new Error(error)
     }

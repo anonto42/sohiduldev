@@ -18,21 +18,9 @@ const productSchema = new mongoose.Schema({
         trim:true,
     },
     imgs:{
-        img1:{
-            type:String,
-            required:[true,"All images are required"],
-            trim:true,
-        },
-        img2:{
-            type:String,
-            required:[true,"All images are required"],
-            trim:true,
-        },
-        img3:{
-            type:String,
-            required:[true,"All images are required"],
-            trim:true,
-        }
+        type:[String],
+        required:[true,"All images are required"],
+        trim:true,
     },
     category:{
         type:String,

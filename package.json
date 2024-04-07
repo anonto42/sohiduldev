@@ -12,7 +12,7 @@
     "node",
     "mongodb"
   ],
-  "author": "",
+  "author": "md shakil khondokar",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
