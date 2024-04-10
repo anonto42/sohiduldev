@@ -1,6 +1,6 @@
 import express from 'express';
 import DBConnection from './db/DB.js';
-import router from './routes/authRoute.js';
+import router from './routes/auth.route.js';
 import bodyParser from 'body-parser';
 import { errorHandaler, notFounding } from './middlewares/errorHandaler.js';
 import dotenv from 'dotenv';

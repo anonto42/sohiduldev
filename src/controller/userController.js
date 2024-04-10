@@ -1,5 +1,6 @@
 import { generateToken } from "../config/jwtToken.js";
 import { users } from "../models/Docs/user.model.js";
+import { validateMongoDBId } from "../util/validateMongoDBId.js";
 // create user
 const createUser = async (req,res) =>{
     const userEmail = req.body.email;
@@ -41,6 +42,9 @@ const getUser = async (req,res)=>{
 // get a single user
 const getAUser = async (req, res) => {
     const { id } = req.params;
+
+    validateMongoDBId(_id);
+
     try {
         const getaUser = await users.findById(id);
         res.json({
@@ -65,6 +69,11 @@ const deletUser = async (req, res) => {
 // update user
 const updateUser = async (req, res) => {
     const { _id } = req.user;
+
+    validateMongoDBId(_id);
+
+    console.log(_id);
+
     try {
     const updatedUser = await users.findByIdAndUpdate(_id,{
         firstName:req?.body?.firstName,
@@ -82,6 +91,7 @@ const updateUser = async (req, res) => {
 // block user
 const blockUser = async (req,res)=>{
     const { id } = req.params;
+    validateMongoDBId(id);
     try {
         const block = await users.findByIdAndUpdate(id,
         {
