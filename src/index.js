@@ -7,16 +7,15 @@ import dotenv from 'dotenv';
 
 const app = express();
 
-const PORT = process.env.PORT || 8500;
+const PORT = process.env.PORT || 3500;
 
 DBConnection();
-
 
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/api/user", router);
+app.use("/api/v1/user", router);
 
 dotenv.config({
     path:"./env"
