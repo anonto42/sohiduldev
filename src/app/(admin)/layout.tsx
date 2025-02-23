@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "@/app/globals.css";
 
-const lato = Lato({weight:"400"});
+const roboto = Roboto({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Sohidul Islam Ananto | Web Developer",
@@ -17,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lato} antialiased`}
+        className={`${roboto.className} antialiased`}
       >
         <div className="max-w-[1300px] mx-auto">
           {children}
