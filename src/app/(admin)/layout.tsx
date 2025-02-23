@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: `Hello, My Name Is Sohidul Islam Ananto. I AM Web Application Developer. I'm use the MERN tech stack to develope error-free, user-friendly websites that offer an excellent user experience. I can make your business online and It will increase your sells. I can also make a portfolio website for your.`,
 };
 
-export default function RootLayout({
+export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
