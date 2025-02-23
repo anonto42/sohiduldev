@@ -6,7 +6,8 @@ import { FaBars} from 'react-icons/fa6'
 const Sidebar = () => {
     const [nav,setNav]= useState<boolean>(false);
     const navFunction=()=>{
-        nav === false ? setNav(true) : setNav(false); 
+        if (nav === false)  setNav(true) 
+        else setNav(false); 
     }
   return (
     <div className=''>
