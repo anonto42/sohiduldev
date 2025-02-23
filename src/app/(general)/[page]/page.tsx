@@ -1,8 +1,12 @@
 import { notFound } from 'next/navigation';
 
-const LocationValidityCheck = async ({ params } : { params : any}) => {
+interface Params{
+  page?: string;
+}
 
-    const { page } = await params;
+const LocationValidityCheck = ({ params } : { params : Params}) => {
+
+    const { page } = params;
 
     if(page) return notFound();
 

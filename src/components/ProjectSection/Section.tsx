@@ -1,9 +1,16 @@
 import React from 'react';
 import ProjectCard from '../Card/ProjectCard';
 
+interface Project{
+  title: string;
+  frontImage: string;
+  liveLink: string;
+  sorceCode: string;
+}
+
 const Section = () => {
 
-    const projects: any[] = [];
+    const projects: Project[] = [];
 
   return (
     <div className='min-h-[70vh] w-full'>
