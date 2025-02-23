@@ -27,10 +27,10 @@ const Introduction = () => {
       </div>
       <div className='text-white mt-3 md:flex justify-between'>
         <div className='mb-3 md:w-[350px] lg:min-w-[400px] md:max-w-[600px] md:mt-[110px]'>
-          <h3 className='text-[25px] gsap_animation font-semibold'>Hello, My Name Is</h3>
-          <h1 className='text-[30px] gsap_animation font-bold'>Sohidul Islam Ananto</h1>
-          <h2 className='text-[27px] gsap_animation gsap_animation font-bold text-[#80b4f4]'>I AM Web Developer</h2>
-          <p className='gsap_animation'>I'm a MERN stack developer passionate about creating error-free, user-friendly websites that offer an excellent user experience. Coding is my craft, and I strive for perfection in every line. </p>
+          <h3 className='text-[25px]  font-semibold'>Hello, My Name Is</h3>
+          <h1 className='text-[30px] font-bold'>Sohidul Islam Ananto</h1>
+          <h2 className='text-[27px] font-bold text-[#80b4f4]'>I AM Web Developer</h2>
+          <p className=''>I am a MERN stack developer passionate about creating error-free, user-friendly websites that offer an excellent user experience. Coding is my craft, and I strive for perfection in every line. </p>
           <Link href="/contact">
             <button id='' className='animation_up_down1 hover:bg-[#23232300] hover:border-[1px] bg-[#80b4f4] duration-300 ease-in-out hover:px- hover:text-white font-semibold text-[#1A1A33] px-1 py-2 w-[95px] rounded-xl text-[16px] shadow-md shadow-[#ffffff7b] my-[35px]'>Contact</button>
           </Link>

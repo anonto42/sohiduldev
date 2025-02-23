@@ -9,7 +9,7 @@ const Contact = () => {
        <div className='mb-6'>
         <div className='text-center'>
           <h1 className='text-[38px] font-semibold'>CONTACT</h1>
-          <h2 className='text-[20px] font-semibold text-highlighte -mt-3'>Let's Talk About Business</h2>
+          <h2 className='text-[20px] font-semibold text-highlighte -mt-3'>Let&apos;s Talk About Business</h2>
         </div>
        </div>
        {/* address info */}
