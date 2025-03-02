@@ -19,7 +19,7 @@ const page = () => {
                 </h2>
 
                     <button
-                        className='bg-[#010409] flex items-center justify-between gap-2 py-2 px-4 rounded-lg mx-auto active:bg-[#000000bb] duration-100 ease-in-out'
+                        className='bg-[#010409] flex items-center justify-between gap-2 py-2 px-4 rounded-lg mx-auto active:bg-[#00000096] active:scale-110 duration-100 ease-in-out shadow-md shadow-[black]'
                     >GitHub <FaGithub /></button>
             
             </div>
