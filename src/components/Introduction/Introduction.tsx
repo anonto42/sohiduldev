@@ -23,6 +23,10 @@ const Introduction = () => {
           width={290}
           height={290}
           alt="#" 
+          placeholder='blur'
+          blurDataURL='/images/Profile2.png'
+          quality={80}
+          priority
           /> 
       </div>
       <div className='text-white mt-3 md:flex justify-between'>
