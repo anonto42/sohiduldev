@@ -8,11 +8,12 @@ interface Project {
     title: string;
     liveLink: string;
     sorceCode: string;
+    index: number;
 }
 
-const ProjectCard = ({frontImage, liveLink, sorceCode, title="Loading..."}: Project ) => {
+const ProjectCard = ({frontImage, liveLink, sorceCode, title="Loading...", index}: Project ) => {
   return (
-    <div className='border-[#1C222A] border-[3px] mb-[50px] w-full md:w-[380px] rounded-2xl shadow-xl pb-5 px-5 mr-6'>
+    <div className={`border-[#1C222A] border-[3px] mb-[50px] w-full md:w-[380px] rounded-2xl shadow-xl pb-5 px-5 mr-6 ${index > 6 ? "hidden":"block"}`}>
             <div className='w-[full] md:h-[150px] scale-[1.12] rounded-lg h-[200px] mb-3 outline-none overflow-hidden relative'>
             <Image
                 alt="Dynamic Image"
