@@ -4,12 +4,11 @@ let connection: boolean = false;
 
 export default async function MongoConnect() {
     if (connection) {
-        return console.log("Your DB is also connected.")
+        return;
     };
     try {
 
-        const db = await mongoose.connect( process.env.MONGODB_URI?.toString() || "" );
-        console.log(db)
+        await mongoose.connect( process.env.MONGODB_URI?.toString() || "" );
         connection = true;
         
     } catch (error) {
