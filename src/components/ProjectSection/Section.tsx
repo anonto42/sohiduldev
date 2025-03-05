@@ -2,6 +2,7 @@ import React from 'react';
 import ProjectCard from '../Card/ProjectCard';
 import MongoConnect from '@/db/mongoDBConnent';
 import ProjectModel, { ProjectSchemaType } from '@/model/project';
+import Link from 'next/link';
 
 
 const Section = async () => {
@@ -19,13 +20,19 @@ const Section = async () => {
             {
               projects.length != 0 ?(
                projects.map((e,i) =>
-                <ProjectCard key={i} title={e.title} frontImage={e.frontImage} liveLink={e.liveLink} sorceCode={e.sorceCode} />
+                <ProjectCard key={i} index={i} title={e.title} frontImage={e.frontImage} liveLink={e.liveLink} sorceCode={e.sorceCode} />
               )):(
-              <>
-                <ProjectCard liveLink={""} title='Name...' frontImage='https://img.freepik.com/free-photo/white-bricks-wall-texture_1203-1665.jpg?t=st=1741155599~exp=1741159199~hmac=14926fc2b1f39ff67ef2d333f92454d7c4887564030f07ac072196d03e2fe214&w=996' sorceCode='' />
-                <ProjectCard liveLink={""} title='Name...' frontImage='https://img.freepik.com/free-photo/white-bricks-wall-texture_1203-1665.jpg?t=st=1741155599~exp=1741159199~hmac=14926fc2b1f39ff67ef2d333f92454d7c4887564030f07ac072196d03e2fe214&w=996' sorceCode='' />
-                <ProjectCard liveLink={""} title='Name...' frontImage='https://img.freepik.com/free-photo/white-bricks-wall-texture_1203-1665.jpg?t=st=1741155599~exp=1741159199~hmac=14926fc2b1f39ff67ef2d333f92454d7c4887564030f07ac072196d03e2fe214&w=996' sorceCode='' />
-              </>)
+                <>
+                  No project found.
+                </>
+              )
+            }
+            {
+              projects.length > 5 ? (<div className='w-full flex justify-center h-auto mb-10'>
+                <Link href={"/projects"}>
+                  <button className='text-white cursor-pointer px-5 py-2 bg-highlighte rounded-md font-medium shadow-sm hover:scale-105 duration-100 ease-in-out shadow-white'>View All.</button>
+                </Link>
+               </div>):(<></>)
             }
         </div>
     </section>
