@@ -2,6 +2,7 @@ import Contact from '@/components/Contact/Contact'
 import Introduction from '@/components/Introduction/Introduction'
 import Section from '@/components/ProjectSection/Section'
 import Services from '@/components/ServicesInformation/Services'
+import UsedTechnologies from '@/components/Techonologies/UsedTechnologies'
 import React from 'react'
 
 const HomePage = () => {
@@ -13,6 +14,8 @@ const HomePage = () => {
       <Services />
       {/* Projects show case */}
       <Section />
+      {/* resent used technologies */}
+      <UsedTechnologies />
       {/* Contact From */}
       <Contact />
     </div>
