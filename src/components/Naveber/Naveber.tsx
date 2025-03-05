@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Naveber = () => {
   return (
-    <div className='w-full bg-[#ffff0000] sticky top-0 backdrop-blur-sm z-20'>
+    <nav className='w-full bg-[#ffff0000] sticky top-0 backdrop-blur-sm z-20'>
         <div className='h-[80px] w-full relative flex text-textColor justify-center items-center md:hidden px-5'> 
             <Link href="/" className=''>
                 <h1 className='flex relative uppercase font-bold italic text-[18px]'>sohidul Islam Ananto
@@ -38,7 +38,7 @@ const Naveber = () => {
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
   )
 }
 
