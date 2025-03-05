@@ -1,19 +1,17 @@
 import React from 'react';
 import ProjectCard from '../Card/ProjectCard';
+import MongoConnect from '@/db/mongoDBConnent';
+import ProjectModel, { ProjectSchemaType } from '@/model/project';
 
-interface Project{
-  title: string;
-  frontImage: string;
-  liveLink: string;
-  sorceCode: string;
-}
 
-const Section = () => {
-
-    const projects: Project[] = [];
+const Section = async () => {
+  ;(async()=>{
+    await MongoConnect()
+  })()
+  const projects: ProjectSchemaType[] = await ProjectModel.find({})
 
   return (
-    <div className='min-h-[70vh] w-full'>
+    <section className='min-h-[70vh] w-full'>
         <div className='flex justify-center items-center my-8 md:mb-[80px] underline text-highlighte md:my-5 text-[30px] font-semibold'>
           <h1>Projects</h1>
         </div>
@@ -21,18 +19,16 @@ const Section = () => {
             {
               projects.length != 0 ?(
                projects.map((e,i) =>
-                <ProjectCard key={i}   title={e.title} imgUrl={e.frontImage} liveLink={e.liveLink} repoLink={e.sorceCode} />
+                <ProjectCard key={i} title={e.title} imgUrl={e.frontImage} liveLink={e.liveLink} repoLink={e.sorceCode} />
               )):(
               <>
-                <ProjectCard liveLink={""} title='This will be the name' imgUrl='/images/Profile.png' repoLink='' />
-                <ProjectCard liveLink={""} title='This will be the name' imgUrl='/images/Profile.png' repoLink='' />
-                <ProjectCard liveLink={""} title='This will be the name' imgUrl='/images/Profile.png' repoLink='' />
-                <ProjectCard liveLink={""} title='This will be the name' imgUrl='/images/Profile.png' repoLink='' />
-                <ProjectCard liveLink={""} title='This will be the name' imgUrl='/images/Profile.png' repoLink='' />
+                <ProjectCard liveLink={""} title='Name...' imgUrl='https://img.freepik.com/free-photo/white-bricks-wall-texture_1203-1665.jpg?t=st=1741155599~exp=1741159199~hmac=14926fc2b1f39ff67ef2d333f92454d7c4887564030f07ac072196d03e2fe214&w=996' repoLink='' />
+                <ProjectCard liveLink={""} title='Name...' imgUrl='https://img.freepik.com/free-photo/white-bricks-wall-texture_1203-1665.jpg?t=st=1741155599~exp=1741159199~hmac=14926fc2b1f39ff67ef2d333f92454d7c4887564030f07ac072196d03e2fe214&w=996' repoLink='' />
+                <ProjectCard liveLink={""} title='Name...' imgUrl='https://img.freepik.com/free-photo/white-bricks-wall-texture_1203-1665.jpg?t=st=1741155599~exp=1741159199~hmac=14926fc2b1f39ff67ef2d333f92454d7c4887564030f07ac072196d03e2fe214&w=996' repoLink='' />
               </>)
             }
         </div>
-    </div>
+    </section>
   )
 }
 
