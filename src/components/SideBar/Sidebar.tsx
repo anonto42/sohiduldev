@@ -25,7 +25,7 @@ const Sidebar = () => {
                     <h3 className='hover:bg-[#232323] duration-300 ease-out hover:px-3 hover:text-textColor font-semibold cursor-pointer px-1 my-2 py-2 w-[95%] mx-auto rounded-xl text-[16px]'>Contact me</h3>
             </Link>
         </nav>
-        <div onClick={()=>navFunction()} className='md:hidden right-3 top-6 fixed w-[35px] h-[30px] cursor-pointer bg-highlighte shadow-md shadow-[#ffffff7b] z-50 rounded-xl flex justify-center items-center text-textColot text-[22px] font-thin active:scale-[1.35] duration-[1s]'>
+        <div onClick={()=>navFunction()} className='md:hidden right-3 top-6 fixed w-[35px] h-[30px] cursor-pointer bg-highlighte shadow-md shadow-[#ffffff7b] z-50 rounded-xl flex justify-center items-center text-textColot text-[22px] font-thin active:scale-125 duration-150 ease-linear'>
                 <FaBars/>
             </div>
     </section>
