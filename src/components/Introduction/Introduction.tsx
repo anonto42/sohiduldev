@@ -16,17 +16,17 @@ const Introduction = () => {
   // const differenceInYearsRounded = differenceInYears.toFixed(1);
 
   return (
-    <div className='h-auto w-full mt-7 md:mt-16'>
+    <section className='h-auto w-full mt-7 md:mt-16'>
       <div className='w-[290px] h-[290px] sm:h-[350px] sm:w-[350px] md:hidden mx-auto border-[3px] border-[#80b4f4] rounded-full flex justify-center items-center py-4 overflow-hidden bg-[#99afd886] relative'>
         <Image 
-          src={"/images/Profile.png"} 
           width={290}
           height={290}
-          alt="#" 
-          placeholder='blur'
-          blurDataURL='/images/Profile2.png'
           quality={80}
           priority
+          placeholder='blur'
+          alt="User profile picture"
+          src={"/images/Profile.webp"} 
+          blurDataURL='/images/Profile2.webp'
           /> 
       </div>
       <div className='text-white mt-3 md:flex justify-between'>
@@ -42,13 +42,17 @@ const Introduction = () => {
         <div>
           <div className='image hidden md:block'>
             <div className='w-[500px] h-[500px] rounded-full border-[3px] border-[#80b4f4] flex justify-center overflow-hidden relative bg-[#99afd886]'>
-              <Image
-                src="/images/Profile.png" 
-                loading='lazy'
-                className='mr-8' 
-                width={400}
-                height={300}
-                alt="" />
+              <Image 
+                  src={"/images/Profile.webp"} 
+                  alt="User profile picture"
+                  blurDataURL='/images/Profile2.webp'
+                  placeholder='blur'
+                  priority
+                  width={400}
+                  height={400}
+                  quality={80}
+                  className='mr-6 object-cover'
+                />
               <BsEmojiSunglassesFill className=' hidden absolute top-[290px] left-[140px] border-2 shadow-md border-[#80b4f4] text-[#80b4f4] text-[40px] bg-white rounded-full' />
             </div>
           </div>
@@ -68,7 +72,7 @@ const Introduction = () => {
 
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
