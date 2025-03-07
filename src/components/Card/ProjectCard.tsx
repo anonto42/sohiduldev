@@ -16,9 +16,9 @@ const ProjectCard = ({frontImage, liveLink, sorceCode, title="Loading...", maxIn
 
   return (
     <div
-        className={`border-[#1C222A] border-[3px] mb-[50px] w-full md:w-[380px] rounded-2xl shadow-xl px-5 mr-6 ${maxIndex > 6 ? "hidden":"block"} `}>
+        className={`border-[#1C222A] border-[3px] mb-[50px] w-full sm:w-[380px] rounded-2xl shadow-xl px-5 mr-6 ${maxIndex > 6 ? "hidden":"block"} `}>
             <div 
-                className={`w-[full] md:h-[150px] scale-[1.12] rounded-lg [200px] outline-none overflow-hidden relative`}
+                className={`w-full h-[150px] scale-[1.12] rounded-lg [200px] outline-none overflow-hidden relative`}
                 onMouseEnter={()=>setHover(true)}
                 onMouseLeave={()=>setHover(false)} 
             >
@@ -31,8 +31,11 @@ const ProjectCard = ({frontImage, liveLink, sorceCode, title="Loading...", maxIn
                     }}    
                 >
                     <a href={liveLink}>
-                        <div className='w-full h-full bg-white/60 flex justify-center items-center text-2xl text-[#111123]'>
-                            <FaExternalLinkAlt />
+                        <div className='w-full h-full bg-white/60 flex justify-center items-center text-2xl text-[#111123] pt-5'>
+                            <div>
+                                <FaExternalLinkAlt className='mx-auto' />
+                                <span className='text-lg'>Click to view</span>
+                            </div>
                         </div>
                     </a>
                 </div>
