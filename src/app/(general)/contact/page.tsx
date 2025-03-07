@@ -3,9 +3,9 @@ import React from 'react'
 
 const ContactMePage = () => {
   return (
-    <div>
+    <section>
       <Form /> 
-    </div>
+    </section>
   )
 }
 
