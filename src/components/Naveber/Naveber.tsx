@@ -33,7 +33,7 @@ const Naveber = () => {
                         <div className='mx-4 w-[105px] h-[40px] flex justify-center items-center rounded-full hover:text-[#2e2e2e] text-[17px] font-semibold duration-150 ease-linear cursor-pointer hover:bg-highlighte hover:shadow-md hover:shadow-[#ffffff7b]'>Projects</div>
                     </Link>
                     <Link href="/contact">
-                        <div className='ml-4 w-[125px] h-[40px] flex justify-center items-center rounded-full text-[#2e2e2e] text-[17px] font-semibold duration-150 ease-linear cursor-pointer bg-highlighte shadow-md shadow-[#ffffff7b]'>Contact me</div>
+                        <div className='ml-4 w-[125px] h-[40px] flex justify-center items-center rounded-full text-[#2e2e2e] text-[17px] font-semibold duration-150 ease-linear cursor-pointer bg-highlighte shadow-md hover:shadow-[#000000e8] active:scale-[1.015]'>Contact me</div>
                     </Link>
                 </div>
             </div>
