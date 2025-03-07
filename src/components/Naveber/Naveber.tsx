@@ -29,7 +29,7 @@ const Naveber = () => {
                     <Link href="/about">
                         <div className='mx-4 w-[105px] h-[40px] flex justify-center items-center rounded-full hover:text-[#2e2e2e] text-[17px] font-semibold duration-150 ease-linear cursor-pointer hover:bg-highlighte hover:shadow-md hover:shadow-[#ffffff7b]'>About Me</div>
                     </Link>
-                    <Link href="/project">
+                    <Link href="/projects">
                         <div className='mx-4 w-[105px] h-[40px] flex justify-center items-center rounded-full hover:text-[#2e2e2e] text-[17px] font-semibold duration-150 ease-linear cursor-pointer hover:bg-highlighte hover:shadow-md hover:shadow-[#ffffff7b]'>Projects</div>
                     </Link>
                     <Link href="/contact">
