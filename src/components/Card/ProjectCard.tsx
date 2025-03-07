@@ -8,15 +8,15 @@ interface Project {
     title: string;
     liveLink: string;
     sorceCode: string;
-    index: number;
+    maxIndex: number;
 }
 
-const ProjectCard = ({frontImage, liveLink, sorceCode, title="Loading...", index}: Project ) => {
+const ProjectCard = ({frontImage, liveLink, sorceCode, title="Loading...", maxIndex}: Project ) => {
     const [hover,setHover] = useState(false);
 
   return (
     <div
-        className={`border-[#1C222A] border-[3px] mb-[50px] w-full md:w-[380px] rounded-2xl shadow-xl px-5 mr-6 ${index > 6 ? "hidden":"block"} `}>
+        className={`border-[#1C222A] border-[3px] mb-[50px] w-full md:w-[380px] rounded-2xl shadow-xl px-5 mr-6 ${maxIndex > 6 ? "hidden":"block"} `}>
             <div 
                 className={`w-[full] md:h-[150px] scale-[1.12] rounded-lg [200px] outline-none overflow-hidden relative`}
                 onMouseEnter={()=>setHover(true)}
