@@ -20,7 +20,7 @@ const Section = async () => {
             {
               projects.length != 0 ?(
                projects.map((e,i) =>
-                <ProjectCard key={i} index={i} title={e.title} frontImage={e.frontImage} liveLink={e.liveLink} sorceCode={e.sorceCode} />
+                <ProjectCard key={i} maxIndex={i} title={e.title} frontImage={e.frontImage} liveLink={e.liveLink} sorceCode={e.sorceCode} />
               )):(
                 <>
                   No project found.
