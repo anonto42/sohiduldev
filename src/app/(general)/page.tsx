@@ -1,4 +1,4 @@
-import Contact from '@/components/Contact/Contact'
+import Form from '@/components/Contact/Form'
 import Introduction from '@/components/Introduction/Introduction'
 import Section from '@/components/ProjectSection/Section'
 import Services from '@/components/ServicesInformation/Services'
@@ -17,7 +17,7 @@ const HomePage = () => {
       {/* resent used technologies */}
       <UsedTechnologies />
       {/* Contact From */}
-      <Contact />
+      <Form />
     </div>
   )
 }
