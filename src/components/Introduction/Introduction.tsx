@@ -36,7 +36,7 @@ const Introduction = () => {
           <h2 className='text-[27px] font-bold text-[#80b4f4]'>I AM Web Developer</h2>
           <p className=''>I am a MERN stack developer passionate about creating error-free, user-friendly websites that offer an excellent user experience. Coding is my craft, and I strive for perfection in every line. </p>
           <Link href="/contact">
-            <button id='' className='animation_up_down1 hover:bg-[#23232300] hover:border-[1px] bg-[#80b4f4] duration-300 ease-in-out hover:px- hover:text-white font-semibold text-[#1A1A33] px-1 py-2 w-[95px] rounded-xl text-[16px] shadow-md shadow-[#ffffff7b] my-[35px]'>Contact</button>
+            <button className='hover:bg-[#23232300] hover:border-[1px] bg-[#80b4f4] duration-300 ease-in-out hover:px- hover:text-white font-semibold text-[#1A1A33] px-1 py-2 w-[95px] rounded-xl text-[16px] shadow-md hover:shadow-[#ffffff7b] my-[35px]'>Contact</button>
           </Link>
         </div>
         <div>
