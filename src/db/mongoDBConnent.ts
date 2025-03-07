@@ -12,7 +12,7 @@ export default async function MongoConnect() {
         connection = true;
         
     } catch (error) {
-        console.log("Somting was wrong on DB connection")
+        console.log("Somting was wrong on DB connection",error)
         process.exit(1)
     };
 };

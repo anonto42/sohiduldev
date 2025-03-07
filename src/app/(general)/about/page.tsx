@@ -104,7 +104,7 @@ const AboutPage = () => {
     <div>
       <section className='w-full'>
         <h1 className='flex justify-center uppercase underline font-semibold text-2xl md:text-3xl lg:text-4xl pt-6'>About me</h1>
-        <p className='text-center pt-3 font-thin text-lg'>I'm a web developer and a student, always excited about creating impactful web applications. I work with technologies like JavaScript, TypeScript, React, Node.js, Next.js, and GraphQL, diving into both front-end and back-end development to craft smooth, user-friendly experiences. I’m constantly learning and growing, blending my studies with hands-on projects to build innovative solutions.</p>
+        <p className='text-center pt-3 font-thin text-lg'>I’m a web developer and a student, always excited about creating impactful web applications. I work with technologies like JavaScript, TypeScript, React, Node.js, Next.js, and GraphQL, diving into both front-end and back-end development to craft smooth, user-friendly experiences. I’m constantly learning and growing, blending my studies with hands-on projects to build innovative solutions.</p>
       </section>
 
       <section className='w-full'>
@@ -115,7 +115,7 @@ const AboutPage = () => {
           {
             files.map((item,index)=>{
               return(
-                <Compo item={item} index={index} />
+                <Compo key={index} item={item} index={index} />
               )
             })
           }
