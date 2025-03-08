@@ -24,9 +24,7 @@ export default function DashboardLayout({
       <body
         className={`${roboto.className} antialiased`}
       >
-        <div className="max-w-[1300px] mx-auto">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );
