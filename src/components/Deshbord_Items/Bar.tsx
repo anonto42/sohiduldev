@@ -4,7 +4,7 @@ import { AiFillMessage } from "react-icons/ai";
 import { RiProjectorFill } from "react-icons/ri";
 import { IoLogOut } from "react-icons/io5";
 
-const Bar = ({setWork}:{setWork:any}) => {
+const Bar = ({setWork,state}:{setWork:any,state:boolean}) => {
 
   const logOut = async () => {
     try {
@@ -21,13 +21,13 @@ const Bar = ({setWork}:{setWork:any}) => {
             onClick={()=>setWork(true)}
             className='rounded-full py-2 mb-6 cursor-pointer flex justify-center items-center hover:bg-[#8686866b] hover:shadow-[0px_0px_5px_rgb(255,255,255,0.5)] duration-100 ease-in-out active:scale-90'
         >
-          <AiFillMessage />
+          <AiFillMessage className={state?"text-[#3377f7]":""} />
         </div>
         <div 
             onClick={()=>setWork(false)}
             className='rounded-full py-2 mb-6 cursor-pointer flex justify-center items-center hover:bg-[#8686866b] hover:shadow-[0px_0px_5px_rgb(255,255,255,0.5)] duration-100 ease-in-out active:scale-90'
         >
-          <RiProjectorFill />
+          <RiProjectorFill className={!state?"text-[#3377f7]":""} />
         </div>
         <div 
             onClick={()=>logOut()}

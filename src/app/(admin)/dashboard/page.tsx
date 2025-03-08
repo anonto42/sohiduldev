@@ -9,7 +9,7 @@ const page = () => {
   return (
     <div className='flex'>
       {/* side bar for the univarsel think */}
-      <Bar setWork={setOpt} />
+      <Bar setWork={setOpt} state={opt} />
       {/* messages options */}
       { opt? <Messages /> : <ProjectOpt /> }
     </div>
