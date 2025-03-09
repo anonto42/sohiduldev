@@ -1,7 +1,9 @@
+import MongoConnect from "@/db/mongoDBConnent";
 import { ApiResponse } from "@/lib/ApiResponce";
 import MessageModel from "@/model/message";
 
 export async function POST(request: Request) {
+    await MongoConnect()
     try {
         const { name, email, message } = await request.json();
 
