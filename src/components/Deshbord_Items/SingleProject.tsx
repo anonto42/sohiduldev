@@ -9,10 +9,10 @@ const SingleProject = ({project}:{project:ProjecInterface}) => {
     const editeProject = async () => {}
 
   return (
-    <div className='bg-[#31313171] rounded-lg shadow-[0px_0px_5px] p-3'>
+    <div className='bg-[#31313171] h-[275px] rounded-lg shadow-[0px_0px_5px] p-3'>
         <div className='w-full h-[120px] relative rounded-md bg-gray-500/60'>
             <Image 
-                src={"/images/defualt-blur-image.webp"} 
+                src={project.frontImage} 
                 alt={project.title}
                 blurDataURL="/images/defualt-blur-image.webp"
                 placeholder='blur'
@@ -24,7 +24,9 @@ const SingleProject = ({project}:{project:ProjecInterface}) => {
             />
         </div>
         <h1 className='mt-2 text-lg font-light'>{project.title}</h1>
-        <h3 className='mb-2 mt-1 text-sm'>{project.liveLink}</h3>
+        <h3 className='mb-2 mt-1 text-sm'>
+        {project.liveLink.length > 30 ? project.liveLink.slice(0, 30) + '...' : project.liveLink}
+        </h3>
         <div className='w-full flex gap-4 justify-between'>
             <button 
                 onClick={()=>deleteProject()}
