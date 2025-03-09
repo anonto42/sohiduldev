@@ -1,19 +1,33 @@
-"use client"
+"use client";
+import AddProject from '@/components/Deshbord_Items/AddProject';
 import Bar from '@/components/Deshbord_Items/Bar';
 import Messages from '@/components/Deshbord_Items/Messages';
 import ProjectOpt from '@/components/Deshbord_Items/ProjectOpt';
 import React, { useState } from 'react';
 
-const page = () => {
-  const [opt,setOpt] = useState(true);
-  return (
-    <div className='flex'>
-      {/* side bar for the univarsel think */}
-      <Bar setWork={setOpt} state={opt} />
-      {/* messages options */}
-      { opt? <Messages /> : <ProjectOpt /> }
-    </div>
-  )
+export interface BarType {
+  first: boolean;
+  second: boolean;
+  third: boolean;
 }
 
-export default page
+const Page = () => {
+  const [barObject, setBarObject] = useState<BarType>({
+    first: true,
+    second: false,
+    third: false,
+  });
+
+  return (
+    <div className="flex">
+      <Bar setWork={setBarObject} work={barObject} />
+      {
+        barObject.first ? <Messages /> : 
+        barObject.second ? <ProjectOpt /> : 
+        barObject.third? <AddProject/> : "" 
+      }
+    </div>
+  );
+};
+
+export default Page;
