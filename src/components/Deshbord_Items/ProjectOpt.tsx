@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SingleProject from './SingleProject'
+import axios from 'axios';
+import Loader from '../Loader/Loader';
 
 export interface ProjecInterface{
   title: string;
@@ -8,24 +10,21 @@ export interface ProjecInterface{
 }
 
 const ProjectOpt = () => {
+  const [loading,setLoading] = useState(true)
+  const [projects,setProjects] = useState([]);
 
-  const projects: ProjecInterface[] = [
-    {title:"Project",liveLink:"...",frontImage:"lll"},
-    {title:"Project",liveLink:"...",frontImage:"lll"},
-    {title:"Project",liveLink:"...",frontImage:"lll"},
-    {title:"Project",liveLink:"...",frontImage:"lll"},
-    {title:"Project",liveLink:"...",frontImage:"lll"},
-    {title:"Project",liveLink:"...",frontImage:"lll"},
-    {title:"Project",liveLink:"...",frontImage:"lll"},
-    {title:"Project",liveLink:"...",frontImage:"lll"},
-    {title:"Project",liveLink:"...",frontImage:"lll"},
-    {title:"Project",liveLink:"...",frontImage:"lll"},
-    {title:"Project",liveLink:"...",frontImage:"lll"},
-  ]
+    useEffect(()=>{
+        ;(async()=>{
+            const { data } = await axios.get("/api/projects")
+            setProjects(data.data)
+            if(data.success) setLoading(false)
+        })();
+    },[])
 
   return (
     <section className='w-full h-svh'>
-      <div className='p-6 w-full h-full overflow-y-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6'>
+        { loading && <Loader className={"rounded-none"} />}
+      <div className='p-6 w-full h-full overflow-y-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 grid-rows-1 md:grid-rows-3'>
         {
           projects.map((item,index)=><SingleProject project={item} key={index} />)
         }
