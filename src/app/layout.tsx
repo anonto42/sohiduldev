@@ -27,7 +27,6 @@ export default function RootLayout({
         className={`${roboto.className} antialiased`}
       >
         {children}
-        <ToastContainer />
       </body>
     </html>
   );

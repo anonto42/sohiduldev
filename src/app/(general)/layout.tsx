@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "@/app/globals.css";
 import Naveber from "@/components/Naveber/Naveber";
 import Footer from "@/components/Footer/Footer";
+import { ToastContainer } from "react-toastify";
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -33,6 +34,7 @@ export default function RootLayout({
           </div>
           <Footer />
         </div>
+        <ToastContainer />
       </body>
     </html>
   );
