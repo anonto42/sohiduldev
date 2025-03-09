@@ -6,6 +6,7 @@ import { IoLogOut } from "react-icons/io5";
 import { BarType } from "@/app/(admin)/dashboard/page";
 import { toast } from "react-toastify";
 import { IoIosAddCircle } from "react-icons/io";
+import { logOut } from "@/app/actions";
 
 const Bar = ({ setWork, work }: { setWork: React.Dispatch<React.SetStateAction<BarType>>, work: BarType }) => {
 
@@ -19,10 +20,6 @@ const Bar = ({ setWork, work }: { setWork: React.Dispatch<React.SetStateAction<B
     } else {
       toast.warning("Something went wrong!");
     }
-  };
-
-  const logOut = () => {
-    confirm("Are you sure you want to log out?");
   };
 
   return (
@@ -58,12 +55,13 @@ const Bar = ({ setWork, work }: { setWork: React.Dispatch<React.SetStateAction<B
       </div>
 
       {/* Logout Button */}
-      <div 
-        onClick={logOut}
-        className="rounded-full py-2 mb-6 cursor-pointer flex justify-center items-center text-red-600 duration-100 active:scale-90 absolute bottom-10 left-[35%]"
-      >
-        <IoLogOut />
-      </div>
+      <form action={logOut}>
+        <button
+          className="rounded-full py-2 mb-6 cursor-pointer flex justify-center items-center text-red-600 duration-100 active:scale-90 absolute bottom-10 left-[35%]"
+        >
+          <IoLogOut />
+        </button>
+      </form>
     </nav>
   );
 };
