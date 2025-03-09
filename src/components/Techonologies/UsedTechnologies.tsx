@@ -17,6 +17,7 @@ const UsedTechnologies = () => {
     "/tecnologies/tl.webp",
     "/tecnologies/fm.webp",
     "/tecnologies/mdb.webp",
+    "/tecnologies/redis.webp",
     "/tecnologies/fb.webp",
     "/tecnologies/gh.webp",
     "/tecnologies/bs.webp",
