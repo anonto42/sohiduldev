@@ -1,12 +1,15 @@
 import MongoConnect from "@/db/mongoDBConnent";
 import { ApiResponse } from "@/lib/ApiResponce";
 import ProjectModel from "@/model/project";
+import { NextRequest } from "next/server";
 
 
-export async function DELETE(request: Request) {
+export async function DELETE(request: NextRequest) {
     await MongoConnect();
     try {
-        const { id } = await request.json()
+        
+        const params = request.nextUrl.searchParams
+        const id = params.get("id")
 
         await ProjectModel.deleteOne({_id:id});
         return ApiResponse.success("Successfully delete the project.",200);
