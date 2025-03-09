@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { MdDelete } from 'react-icons/md'
 import { toast } from 'react-toastify'
 
-const SingleMessage = ({loading,message}:{loading:any,message:any}) => {
+const SingleMessage = ({loading,message,refresh}:{loading:any,message:any,refresh:any}) => {
 
     const deleteMessageHandler = async () => {
         try {
@@ -12,9 +12,7 @@ const SingleMessage = ({loading,message}:{loading:any,message:any}) => {
             const { data } = await axios.delete(`/api/admin/messages?id=${message._id.trim()}`,)
             toast.success(data.message)
 
-            setTimeout(() => {
-                window.location.reload()
-            }, 2000);
+            refresh();
             
             loading(false)
         } catch (error) {

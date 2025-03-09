@@ -1,11 +1,27 @@
 "use client"
 import Image from 'next/image'
 import React from 'react'
-import { ProjecInterface } from './ProjectOpt'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
-const SingleProject = ({project}:{project:ProjecInterface}) => {
+const SingleProject = ({project,loading,refresh}:{refresh:any,loading:any,project:any}) => {
 
-    const deleteProject = async () => {}
+    const deleteProject = async () => {
+        try {
+            loading(true)
+            
+            const { data } = await axios.delete(`/api/admin/project?id=${project._id.trim()}`,)
+            toast.success(data.message)
+
+            refresh()
+    
+            loading(false)
+        } catch (error) {
+            loading(false)
+            toast.error(error.response.data.message)
+            console.log(error.response.data)
+        }
+    }
     const editeProject = async () => {}
 
   return (
