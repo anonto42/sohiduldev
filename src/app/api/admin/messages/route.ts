@@ -1,6 +1,7 @@
 import MongoConnect from "@/db/mongoDBConnent";
 import { ApiResponse } from "@/lib/ApiResponce";
 import MessageModel from "@/model/message";
+import { NextRequest } from "next/server";
 
 
 export async function GET(request: Request) {
@@ -16,12 +17,13 @@ export async function GET(request: Request) {
     }
 }
 
-export async function DELETE(request: Request) {
+export async function DELETE(request: NextRequest) {
     await MongoConnect();
     try {
-        
-        const { id } = await request.json();
-        if (!id || id.trim() === "") return ApiResponse.error("Select an id for delete a message.")
+        const params = request.nextUrl.searchParams
+        const id = params.get("id")
+
+        if (id == "") return ApiResponse.error("Select an id for delete a message.")
 
         await MessageModel.deleteOne({_id:id});
         return ApiResponse.success("Successfully delete the message.",200);
