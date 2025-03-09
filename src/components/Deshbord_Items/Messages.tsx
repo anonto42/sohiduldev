@@ -1,25 +1,27 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SingleMessage from './SingleMessage';
 import Loader from '../Loader/Loader';
+import axios from 'axios';
 
 const Messages = () => {
-    const [loading,setLoading] = useState(false);
-    const data =[ 
-        {name:"Sohidul Islam",email:"anontom90@gmail.com",message:"What do you want to do with me i want to say that how can i help you"},
-        {name:"Sohidul Islam",email:"anontom90@gmail.com",message:"What do you want to do with me i want to say that how can i help you"},
-        {name:"Sohidul Islam",email:"anontom90@gmail.com",message:"What do you want to do with me i want to say that how can i help you"},
-        {name:"Sohidul Islam",email:"anontom90@gmail.com",message:"What do you want to do with me i want to say that how can i help you"},
-        {name:"Sohidul Islam",email:"anontom90@gmail.com",message:"What do you want to do with me i want to say that how can i help you"},
-        {name:"Sohidul Islam",email:"anontom90@gmail.com",message:"What do you want to do with me i want to say that how can i help you"},
-    ]
+    const [loading,setLoading] = useState(true);
+    const [messages,setMessages] = useState([]);
+
+    useEffect(()=>{
+        ;(async()=>{
+            const { data } = await axios.get("/api/admin/messages")
+            setMessages(data.data)
+            if(data.success) setLoading(false)
+        })();
+    },[])
 
   return (
     <section className='w-full h-svh relative'>
         { loading && <Loader className={"rounded-none"} />}
-        <div className='p-6 gap-4 w-full h-full overflow-y-auto'>
+        <div className='p-6 gap-4 w-[ 100% - 100px ] lg:w-full h-full overflow-y-auto'>
             {
-                data.map((item,index)=><SingleMessage key={index} loading={setLoading} message={item} />)
+                messages.map((item,index)=><SingleMessage key={index} loading={setLoading} message={item} />)
             }
         </div>
     </section>
