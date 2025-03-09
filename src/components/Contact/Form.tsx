@@ -3,8 +3,10 @@ import React, { useState } from 'react'
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
 import Loader from '../Loader/Loader';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
-interface takeData {
+export interface takeData {
     name: string;
     email: string;
     message: string;
@@ -20,16 +22,26 @@ const Form = () => {
         setLoading(true);
         try {
             const data: takeData = {name,email,message:text}
-
-            setTimeout(() => {
-                setLoading(false);
-              }, 2000); 
-            
-
+            console.log(data)
+            const responce = await axios.post("/api/message", data);
+            if (responce.data.success === true) {
+              toast.success(responce.data.message)
+            }else{
+              toast.warning(responce.data.message)
+            }
+            setName("");
+            setEmail("");
+            setText("");
             setLoading(false);
         } catch (error) {
             setLoading(false);
-            console.log(error);
+            console.log(error.response.data.message);
+            toast.error(error.response.data.message)
+            setName("");
+            setEmail("");
+            setText("");
+        }finally{
+          setLoading(false);
         }
     }
     
@@ -65,6 +77,7 @@ const Form = () => {
         <div className='w-full mb-4'>
           <h1 className='font-thin'>Your name</h1>
           <input 
+            value={name}
             onChange={ e => setName(e.target.value) }
             placeholder='Your Name' 
             type="text" 
@@ -74,6 +87,7 @@ const Form = () => {
         <div className='w-full mb-4'>
           <h1 className='font-thin'>Your email</h1>
           <input 
+            value={email}
             onChange={ e => setEmail(e.target.value) }
             placeholder='Your Email' 
             type="email" 
@@ -81,8 +95,9 @@ const Form = () => {
           />
         </div>
         <div className='w-full mb-4'>
-          <h1 className='font-thin'>What do you want to do</h1>
+          <h1 className='font-thin'>Have Something on Your Mind? I'm Here to Listen!</h1>
           <textarea 
+            value={text}
             onChange={ e => setText(e.target.value) }
             rows={7} 
             cols={40} 
