@@ -9,7 +9,7 @@ const SingleProject = ({project}:{project:ProjecInterface}) => {
     const editeProject = async () => {}
 
   return (
-    <div className='bg-[#31313171] h-[275px] rounded-lg shadow-[0px_0px_5px] p-3'>
+    <div className='bg-[#31313171] h-[255px] rounded-lg shadow-[0px_0px_5px] p-3'>
         <div className='w-full h-[120px] relative rounded-md bg-gray-500/60'>
             <Image 
                 src={project.frontImage} 
@@ -23,9 +23,12 @@ const SingleProject = ({project}:{project:ProjecInterface}) => {
                 className='object-cover'
             />
         </div>
-        <h1 className='mt-2 text-lg font-light'>{project.title}</h1>
+        <h1 className='mt-2 text-lg font-light'>
+        {project.title.length > 15 ? project.title.slice(0, 15) + '...' : project.title}
+            
+        </h1>
         <h3 className='mb-2 mt-1 text-sm'>
-        {project.liveLink.length > 30 ? project.liveLink.slice(0, 30) + '...' : project.liveLink}
+            {project.liveLink.length > 25 ? project.liveLink.slice(0, 25) + '...' : project.liveLink}
         </h3>
         <div className='w-full flex gap-4 justify-between'>
             <button 
