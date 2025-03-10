@@ -31,7 +31,7 @@ const Introduction = () => {
           blurDataURL='/images/Profile2.webp'
           /> 
       </div>
-      <div className='text-white mt-3 md:flex justify-between'>
+      <div className='text-white md:flex justify-between'>
         <motion.div
           initial={
             {
@@ -51,11 +51,11 @@ const Introduction = () => {
               ease:"easeOut"
             }
           }
-          className='mb-3 md:w-[350px] lg:min-w-[400px] md:max-w-[600px] md:mt-[110px]'>
-            <h3 className='text-[25px]  font-semibold'>Hello, My Name Is</h3>
-            <h1 className='text-[30px] font-bold'>Sohidul Islam Ananto</h1>
-            <h2 className='text-[27px] font-bold text-[#80b4f4]'>I AM Web Developer</h2>
-            <p className=''>I am a MERN stack developer passionate about creating error-free, user-friendly websites that offer an excellent user experience. Coding is my craft, and I strive for perfection in every line. </p>
+          className='mb-3 md:w-[350px] lg:min-w-[400px] md:max-w-[600px] md:mt-[110px] pt-9 text-center md:text-left'>
+            <h3 className='text-2xl lg:text-3xl  font-semibold'>Hello, My Name Is</h3>
+            <h1 className='text-3xl lg:text-4xl font-bold'>Sohidul Islam Ananto</h1>
+            <h2 className='text-xl lg:text-2xl font-bold text-[#80b4f4]'>I’m Software Developer</h2>
+            <p className='font-thin text-sm lg:text-lg'>and also a student of computer science.</p>
             <Link href="/contact">
               <motion.div
                 initial={
@@ -90,6 +90,8 @@ const Introduction = () => {
               </motion.div>
             </Link>
         </motion.div>
+
+
         <div>
           <div className='image hidden md:block'>
             <div className='w-[500px] h-[500px] rounded-full border-[3px] border-[#80b4f4] flex justify-center overflow-hidden relative bg-[#99afd886]'>
