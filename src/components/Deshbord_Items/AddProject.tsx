@@ -40,6 +40,11 @@ const AddProject = () => {
 
             toast.success(data.message || "Your request success fully resved.")
 
+            setTitle("");
+            setLiveLink("");
+            setFile(null);
+            setPreview("");
+
             setLoading(false)
         } catch (error:any) {
             console.log(error.response)
