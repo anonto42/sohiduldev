@@ -15,7 +15,7 @@ const SingleMessage = ({loading,message,refresh}:{loading:any,message:any,refres
             refresh();
             
             loading(false)
-        } catch (error) {
+        } catch (error:any) {
             loading(false)
             toast.error(error.response.data.message)
             console.log(error.response.data)
