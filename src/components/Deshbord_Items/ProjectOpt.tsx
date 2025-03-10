@@ -9,7 +9,7 @@ const ProjectOpt = ({refresh,reducer}:{refresh:any,reducer:any}) => {
 
     useEffect(()=>{
         ;(async()=>{
-            const { data } = await axios.get("/api/projects")
+            const { data } = await axios.get("/api/projects");
             setProjects(data.data)
             if(data.success) setLoading(false)
         })();

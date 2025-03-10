@@ -10,13 +10,13 @@ const SingleProject = ({project,loading,refresh}:{refresh:any,loading:any,projec
         try {
             loading(true)
             
-            const { data } = await axios.delete(`/api/admin/project?id=${project._id.trim()}`,)
+            const { data } = await axios.delete(`/api/admin/project?id=${project._id.trim()}`)
             toast.success(data.message)
 
             refresh()
     
             loading(false)
-        } catch (error) {
+        } catch (error:any) {
             loading(false)
             toast.error(error.response.data.message)
             console.log(error.response.data)
