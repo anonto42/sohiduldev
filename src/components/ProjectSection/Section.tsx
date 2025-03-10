@@ -12,7 +12,7 @@ const Section = async () => {
   const projects: ProjectSchemaType[] = await ProjectModel.find({})
 
   return (
-    <section className='min-h-[70vh] w-full'>
+    <section className='min-h-[34vh] w-full mb-[50px]'>
         <div className='flex justify-center items-center my-8 md:mb-[80px] underline text-highlighte md:my-5 text-[30px] font-semibold'>
           <h1>Projects</h1>
         </div>
@@ -20,7 +20,7 @@ const Section = async () => {
             {
               projects.length != 0 ?(
                projects.map((e,i) =>
-                <ProjectCard key={i} maxIndex={i} title={e.title} frontImage={e.frontImage} liveLink={e.liveLink} sorceCode={e.sorceCode} />
+                <ProjectCard key={i} maxIndex={i} title={e.title} frontImage={e.frontImage} liveLink={e.liveLink} />
               )):(
                 <>
                   No project found.
