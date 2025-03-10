@@ -3,7 +3,6 @@ import { Schema, model, Document, Model, models } from "mongoose";
 export interface ProjectSchemaType extends Document{
     title: string;
     liveLink: string;
-    sorceCode: string;
     frontImage: string;
 }
 
@@ -13,10 +12,6 @@ const projectsSchema: Schema<ProjectSchemaType> = new Schema({
         required: true
     },
     liveLink:{
-        type : String,
-        required: true
-    },
-    sorceCode:{
         type : String,
         required: true
     },
