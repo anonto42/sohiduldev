@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const AddProject = () => {
     const [file,setFile] = useState<File | null>(null);
-    const [preview, setPreview] = useState<string>();
+    const [preview, setPreview] = useState<string>("");
     const [title,setTitle] = useState<string>("");
     const [liveLink,setLiveLink] = useState<string>("");
     const [loading,setLoading] = useState<boolean>(false);
@@ -57,7 +57,7 @@ const AddProject = () => {
         <SessionProvider>
             <div className='p-6'>
                 <div className='w-[700px] h-[650px] rounded-lg bg-[#00000042] shadow-[0px_0px_4px] relative mx-auto overflow-clip'>
-                        { loading && <Loader className='' />}
+                        { loading && <Loader className='z-30' />}
                         <div >
                             <div>
                                 <label htmlFor='fileSilectior'>
