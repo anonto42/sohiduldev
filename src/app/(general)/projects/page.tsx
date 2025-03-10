@@ -11,8 +11,8 @@ const ProjectPage = async () => {
       </section>
       <section className='w-full h-auto flex justify-center flex-wrap mb-6'>
         {
-          projects.map(({frontImage,liveLink,sorceCode,title},index)=>{                
-          return <ProjectCard key={index} maxIndex={1} title={title} frontImage={frontImage} liveLink={liveLink} sorceCode={sorceCode} />
+          projects.map(({frontImage,liveLink,title},index)=>{                
+          return <ProjectCard key={index} maxIndex={1} title={title} frontImage={frontImage} liveLink={liveLink} />
           })
         }
       </section>
