@@ -33,7 +33,7 @@ const Form = () => {
             setEmail("");
             setText("");
             setLoading(false);
-        } catch (error) {
+        } catch (error:any) {
             setLoading(false);
             console.log(error.response.data.message);
             toast.error(error.response.data.message)
