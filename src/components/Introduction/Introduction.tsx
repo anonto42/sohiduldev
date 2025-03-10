@@ -1,7 +1,9 @@
+"use client"
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { BsEmojiSunglassesFill } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 
 const Introduction = () => {
 
@@ -30,15 +32,64 @@ const Introduction = () => {
           /> 
       </div>
       <div className='text-white mt-3 md:flex justify-between'>
-        <div className='mb-3 md:w-[350px] lg:min-w-[400px] md:max-w-[600px] md:mt-[110px]'>
-          <h3 className='text-[25px]  font-semibold'>Hello, My Name Is</h3>
-          <h1 className='text-[30px] font-bold'>Sohidul Islam Ananto</h1>
-          <h2 className='text-[27px] font-bold text-[#80b4f4]'>I AM Web Developer</h2>
-          <p className=''>I am a MERN stack developer passionate about creating error-free, user-friendly websites that offer an excellent user experience. Coding is my craft, and I strive for perfection in every line. </p>
-          <Link href="/contact">
-            <button className='hover:bg-[#23232300] hover:border-[1px] bg-[#80b4f4] duration-300 ease-in-out hover:px- hover:text-white font-semibold text-[#1A1A33] px-1 py-2 w-[95px] rounded-xl text-[16px] shadow-md hover:shadow-[#ffffff7b] my-[35px]'>Contact</button>
-          </Link>
-        </div>
+        <motion.div
+          initial={
+            {
+              opacity:0,
+              y:20
+            }
+          }
+          animate={
+            {
+              opacity:1,
+              y:0
+            }
+          }
+          transition={
+            {
+              duration:1,
+              ease:"easeOut"
+            }
+          }
+          className='mb-3 md:w-[350px] lg:min-w-[400px] md:max-w-[600px] md:mt-[110px]'>
+            <h3 className='text-[25px]  font-semibold'>Hello, My Name Is</h3>
+            <h1 className='text-[30px] font-bold'>Sohidul Islam Ananto</h1>
+            <h2 className='text-[27px] font-bold text-[#80b4f4]'>I AM Web Developer</h2>
+            <p className=''>I am a MERN stack developer passionate about creating error-free, user-friendly websites that offer an excellent user experience. Coding is my craft, and I strive for perfection in every line. </p>
+            <Link href="/contact">
+              <motion.div
+                initial={
+                  {
+                    opacity:0,
+                    y:10
+                  }
+                }
+                animate={
+                  {
+                    opacity:1,
+                    y:-15
+                  }
+                }
+                transition={
+                  {
+                    duration:1,
+                    ease:"easeOut"
+                  }
+                }
+              >
+                <motion.div
+                  animate={{y:[0,-5,0,5,0]}}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 4,
+                    ease: "linear"
+                  }}
+                >
+                  <button className='hover:bg-[#23232300] hover:border-[1px] bg-[#80b4f4] duration-300 ease-in-out hover:px- hover:text-white font-semibold text-[#1A1A33] px-1 py-2 w-[95px] rounded-xl text-[16px] shadow-md hover:shadow-[#ffffff7b] my-[35px]'>Contact</button>
+                </motion.div>
+              </motion.div>
+            </Link>
+        </motion.div>
         <div>
           <div className='image hidden md:block'>
             <div className='w-[500px] h-[500px] rounded-full border-[3px] border-[#80b4f4] flex justify-center overflow-hidden relative bg-[#99afd886]'>
