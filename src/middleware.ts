@@ -4,7 +4,7 @@ import { auth } from "./auth";
 export async function middleware(request: NextRequest){
 
     const section = await auth();
-    if (section?.user?.email === "anonto1080@gmail.com") {
+    if (!section?.user) {
         return NextResponse.redirect(
             new URL("/auth", request.url)
         )
