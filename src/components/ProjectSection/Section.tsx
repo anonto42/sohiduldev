@@ -8,19 +8,24 @@ import Link from 'next/link';
 const Section = async () => {
   ;(async()=>{
     await MongoConnect()
-  })()
-  const projects: ProjectSchemaType[] = await ProjectModel.find({})
+  })();
+  const projects: ProjectSchemaType[] = await ProjectModel.find({});
+
+  
 
   return (
     <section className='min-h-[34vh] w-full mb-[50px]'>
-        <div className='flex justify-center items-center my-8 md:mb-[80px] underline text-highlighte md:my-5 text-[30px] font-semibold'>
+        <div className='flex justify-center items-center my-8 md:mb-10 underline text-highlighte md:my-5 text-[30px] font-semibold'>
           <h1>Projects</h1>
         </div>
-        <div className='w-full h-auto flex justify-center flex-wrap'>
+        <div 
+          className='w-full h-auto flex justify-center flex-wrap ml-3'>
             {
               projects.length != 0 ?(
                projects.map((e,i) =>
-                <ProjectCard key={i} maxIndex={i} title={e.title} frontImage={e.frontImage} liveLink={e.liveLink} />
+                <>
+                  <ProjectCard key={i} maxIndex={i} title={e.title} frontImage={e.frontImage} liveLink={e.liveLink} />
+                </>
               )):(
                 <>
                   No project found.
